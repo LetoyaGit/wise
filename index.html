@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GainwiseFX</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .hamburger {
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+        }
+
+        .info-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .info-box {
+            transition: all 0.3s ease;
+            border: 2px solid #000;
+            padding: 20px;
+            margin: 10px;
+            cursor: pointer;
+            flex: 1 1 calc(25% - 40px);
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .info-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+        }
+
+        .slide-in {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .shadow-bounce {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .info-box:hover {
+            border-color: #ff5733;
+            color: #ff5733;
+        }
+
+        .contact-section {
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .contact-section form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-section input,
+        .contact-section textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-section button {
+            padding: 10px 20px;
+            background-color: #ff5733;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #ff5733;
+            text-decoration: none;
+        }
+
+        /* Mobile Queries */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background-color: #333;
+                padding: 20px;
+                border-radius: 5px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .info-box {
+                flex: 1 1 calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .info-box {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">GAINWISEFX</div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links" id="navMenu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Our Website</h1>
+            <p>Your journey starts here.</p>
+        </div>
+    </header>
+    
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    </div>
+    <script type="text/javascript">
+        var tradingViewSettings = {
+            "symbol": "FX:EURUSD",
+            "width": 350,
+            "height": 220,
+            "locale": "en",
+            "dateRange": "12M",
+            "colorTheme": "dark",
+            "isTransparent": false,
+            "autosize": false,
+            "largeChartUrl": ""
+        };
+
+        (function() {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
+            script.async = true;
+            script.onload = function() {
+                new TradingView.widget(tradingViewSettings);
+            };
+            document.querySelector(".tradingview-widget-container").appendChild(script);
+        })();
+    </script>
+    <!-- TradingView Widget END -->
+    
+    <section class="info-section">
+        <div class="info-box" onclick="changeStyle(this)">
+            <h2>Main Title 1</h2>
+            <h3>Subtitle 1</h3>
+            <p>This is a short paragraph describing the section.</p>
+        </div>
+        <div class="info-box" onclick="changeStyle(this)">
+            <h2>Main Title 2</h2>
+            <h3>Subtitle 2</h3>
+            <p>This is a short paragraph describing the section.</p>
+        </div>
+        <div class="info-box" onclick="changeStyle(this)">
+            <h2>Main Title 3</h2>
+            <h3>Subtitle 3</h3>
+            <p>This is a short paragraph describing the section.</p>
+        </div>
+        <div class="info-box" onclick="changeStyle(this)">
+            <h2>Main Title 4</h2>
+            <h3>Subtitle 4</h3>
+            <p>This is a short paragraph describing the section.</p>
+        </div>
+        <div class="info-box" onclick="changeStyle(this)">
+            <h2>Main Title 5</h2>
+            <h3>Subtitle 5</h3>
+            <p>This is a short paragraph describing the section.</p>
+        </div>
+    </section>
+    
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2024 All Rights Reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById("navMenu").classList.toggle("active");
+        }
+
+        document.addEventListener("scroll", function() {
+            var infoBoxes = document.querySelectorAll(".info-box");
+            infoBoxes.forEach(function(infoBox) {
+                var position = infoBox.getBoundingClientRect().top;
+                var screenPosition = window.innerHeight / 1.2;
+                
+                if (position < screenPosition) {
+                    infoBox.classList.add("slide-in");
+                }
+            });
+        });
+        
+        document.querySelectorAll(".info-box").forEach(function(box) {
+            box.addEventListener("mouseover", function() {
+                this.classList.add("shadow-bounce");
+            });
+
+            box.addEventListener("mouseleave", function() {
+                this.classList.remove("shadow-bounce");
+            });
+        });
+        
+        function changeStyle(element) {
+            element.style.borderColor = "#ff5733";
+            element.style.color = "#ff5733";
+        }
+    </script>
+</body>
+</html>
