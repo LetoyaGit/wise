@@ -6,50 +6,146 @@
     <title>GainwiseFX</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        
         body {
+            background: url('../assets/hero2.jpg') no-repeat center center/cover;
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-        }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #145670;
+    color: #fff;
+}
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-        }
+.logo { 
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
-        .hamburger {
-            font-size: 24px;
-            cursor: pointer;
-            display: none;
-        }
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Allow the nav-links to take up available space */
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+.nav-links li {
+    margin: 0 15px;
+}
 
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-        }
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.sign-in {
+    background-color: rgb(21, 6, 87);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px; /* Curved edges */
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.sign-in:hover {
+    background-color: #101022; /* Darker grey on hover */
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Responsive Design for Hamburger Menu */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #145670;
+        
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    .sign-in {
+    background-color: rgb(10, 3, 41);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; /* Curved edges */
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif; /* Poppins font */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.sign-in:hover {
+    background-color: #606060; /* Darker grey on hover */
+}
+
+/* Responsive Design for Sign-In Button */
+@media (max-width: 768px) {
+    .sign-in {
+        display: inline-block; /* Hide the button on smaller screens */
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger menu */
+    }
+
+    /* Optional: Add a Sign-In link inside the mobile menu */
+    .nav-links.active .sign-in-mobile {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .sign-in-mobile {
+        display: none;
+        background-color: grey;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+    }
+}
+    .hamburger {
+        display: block;
+    }
+
+    .sign-in {
+        display:inline-block;
+    }
+}
 
         .hero {
-            background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
-            color: #fff;
+            background: url ('../../assets/images/hero1.jpg') no-repeat center center/cover;
+            color: #121646; /* Changed text color to white for better contrast */
             padding: 100px 20px;
             text-align: center;
         }
@@ -59,8 +155,31 @@
             margin-bottom: 20px;
         }
 
+        .hero-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            
+        }
+
         .hero-content p {
+
             font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            padding: 10px 20px;
+            background-color: #2c8fb6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-button:hover {
+            background-color: #1f6a8a;
         }
 
         .info-section {
@@ -71,29 +190,69 @@
             gap: 20px;
         }
 
-        .info-box {
+        /* Common Box Styling */
+        .maverick-box, .fivefigure-box, .elite-box, .summit-box, .infinity-box {
             transition: all 0.3s ease;
-            border: 2px solid #000;
             padding: 20px;
             margin: 10px;
             cursor: pointer;
             flex: 1 1 calc(25% - 40px);
             max-width: 300px;
             text-align: center;
+            border: 5px solid;
+            background: #e4eeeb;
+            border-radius: 20px;
+
         }
 
-        .info-box h2 {
+        .maverick-box {
+            border-color: #238097;
+        }
+
+        .fivefigure-box {
+            border-color: #d83f19;
+        }
+
+        .elite-box {
+            border-color: #ccac1c;
+        }
+
+        .summit-box {
+            border-color: #fc059d67;
+        }
+
+        .infinity-box {
+            border-color: #050d53;
+        }
+
+        .maverick-box h2, .fivefigure-box h2, .elite-box h2, .summit-box h2, .infinity-box h2 {
             font-size: 24px;
             margin-bottom: 10px;
         }
 
-        .info-box h3 {
+        .maverick-box h3, .fivefigure-box h3, .elite-box h3, .summit-box h3, .infinity-box h3 {
             font-size: 18px;
             margin-bottom: 10px;
         }
 
-        .info-box p {
+        .maverick-box p, .fivefigure-box p, .elite-box p, .summit-box p, .infinity-box p {
             font-size: 14px;
+        }
+
+        .deposit-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #0a0e0ee1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .deposit-button:hover {
+            background-color: #352826;
         }
 
         .slide-in {
@@ -106,14 +265,34 @@
             transform: scale(1.05);
         }
 
-        .info-box:hover {
-            border-color: #ff5733;
-            color: #ff5733;
+        .maverick-box:hover {
+            border-color: #2042d8;
+            color: #090e0d;
+        }
+
+        .fivefigure-box:hover {
+            border-color: #db401d;
+            color: #140e0d;
+        }
+
+        .elite-box:hover {
+            border-color: #095225;
+            color: #04140a;
+        }
+
+        .summit-box:hover {
+            border-color: #750b55;
+            color: #0d0a0f;
+        }
+
+        .infinity-box:hover {
+            border-color: #010718;
+            color: #181920;
         }
 
         .contact-section {
             padding: 50px 20px;
-            background-color: #f4f4f4;
+            background-color: #6796b6;
             text-align: center;
         }
 
@@ -132,31 +311,33 @@
 
         .contact-section input,
         .contact-section textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
+            padding: 29px;
+            border: 1px solid #08001a;
             border-radius: 5px;
             font-size: 16px;
+            font-family: 'Poppins', sans-serif;
         }
 
         .contact-section button {
             padding: 10px 20px;
-            background-color: #ff5733;
+            background-color: #06212c;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             cursor: pointer;
             font-size: 16px;
+            font-family: 'Poppins', sans-serif;
         }
 
         .footer {
-            background-color: #333;
+            background-color: #010305;
             color: #fff;
             text-align: center;
             padding: 20px;
         }
 
         .footer a {
-            color: #ff5733;
+            color: #ffffff;
             text-decoration: none;
         }
 
@@ -186,17 +367,24 @@
                 font-size: 36px;
             }
 
+            .hero-content h2 {
+                font-size: 28px;
+            }
+
             .hero-content p {
                 font-size: 16px;
             }
-
-            .info-box {
+            .hero-content h3 {
+                font-size: 28px;
+                text-align: center;
+            }
+            .maverick-box, .fivefigure-box, .elite-box, .summit-box, .infinity-box {
                 flex: 1 1 calc(50% - 40px);
             }
         }
 
         @media (max-width: 480px) {
-            .info-box {
+            .maverick-box, .fivefigure-box, .elite-box, .summit-box, .infinity-box {
                 flex: 1 1 100%;
             }
         }
@@ -204,94 +392,127 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="logo">GAINWISEFX</div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="logo">GAINWISE FX</div>
+    
         <ul class="nav-links" id="navMenu">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
+        
+    </ul>
         </ul>
+    
+        <button class="sign-in">Sign In</button>
+    
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     </nav>
     
     <header class="hero">
         <div class="hero-content">
-            <h1>Welcome to Our Website</h1>
-            <p>Your journey starts here.</p>
+            <h1>Online Trading</h1>
+            <h2>Start Trading Online</h2>
+            <p>Trade conveniently with secure deposits & seamless transactions on our platform.</p>
+            <button class="hero-button">Open Account</button>
         </div>
     </header>
     
     <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+    <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+    <div class="tradingview-widget-copyright">
+        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+            <span class="blue-text">Track all markets on TradingView</span>
+        </a>
     </div>
-    <script type="text/javascript">
-        var tradingViewSettings = {
-            "symbol": "FX:EURUSD",
-            "width": 350,
-            "height": 220,
-            "locale": "en",
-            "dateRange": "12M",
-            "colorTheme": "dark",
-            "isTransparent": false,
-            "autosize": false,
-            "largeChartUrl": ""
-        };
+</div>
 
-        (function() {
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
-            script.async = true;
-            script.onload = function() {
-                new TradingView.widget(tradingViewSettings);
-            };
-            document.querySelector(".tradingview-widget-container").appendChild(script);
-        })();
-    </script>
-    <!-- TradingView Widget END -->
-    
+<script type="text/javascript">
+    new TradingView.widget({
+        "container_id": "tradingview-widget-container__widget",
+        "autosize": true,
+        "symbol": "BINANCE:BTCUSDT",
+        "interval": "5",
+        "timezone": "Africa/Nairobi",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "backgroundColor": "rgba(0, 0, 0, 1)",
+        "gridColor": "rgba(216, 216, 216, 0.06)",
+        "allow_symbol_change": true,
+        "calendar": false,
+        "support_host": "https://www.tradingview.com"
+    });
+</script>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async></script>
+<!-- TradingView Widget END -->
+        <h2>Features</h2>
     <section class="info-section">
-        <div class="info-box" onclick="changeStyle(this)">
-            <h2>Main Title 1</h2>
-            <h3>Subtitle 1</h3>
-            <p>This is a short paragraph describing the section.</p>
+        <div class="maverick-box" onclick="changeStyle(this)">
+            <h2>Micro Maverick</h2>
+            <h3>KES 2,500</h3>
+            <p>Trade and earn 13% after 2 days. Trade with a minimum of KES 1000. Earning is unlimited and trading is done 24/7</p>
+            <button class="deposit-button">Deposit</button>
         </div>
-        <div class="info-box" onclick="changeStyle(this)">
-            <h2>Main Title 2</h2>
-            <h3>Subtitle 2</h3>
-            <p>This is a short paragraph describing the section.</p>
+        <div class="fivefigure-box" onclick="changeStyle(this)">
+            <h2>Five Figure Fortress</h2>
+            <h3>KES 25,000</h3>
+            <p>Trade and earn 13% after 2 days. Trade with a minimum of KES 25,000. Earning is unlimited and trading is done 24/7.</p>
+            <button class="deposit-button">Deposit</button>
         </div>
-        <div class="info-box" onclick="changeStyle(this)">
-            <h2>Main Title 3</h2>
-            <h3>Subtitle 3</h3>
-            <p>This is a short paragraph describing the section.</p>
+        <div class="elite-box" onclick="changeStyle(this)">
+            <h2>Elite Apex</h2>
+            <h3>KES 75,000</h3>
+            <p>Trade and earn 13% after 2 days. Trade with a minimum of KES 50,000. Earning is unlimited and trading is done 24/7</p>
+            <button class="deposit-button">Deposit</button>
         </div>
-        <div class="info-box" onclick="changeStyle(this)">
-            <h2>Main Title 4</h2>
-            <h3>Subtitle 4</h3>
-            <p>This is a short paragraph describing the section.</p>
+        <div class="summit-box" onclick="changeStyle(this)">
+            <h2>Summit Pro</h2>
+            <h3>KES 150,000</h3>
+            <p>Trade and earn 13% after 2 days. Trade with a minimum of KES 100,000. Earning is unlimited and trading is done 24/7</p>
+            <button class="deposit-button">Deposit</button>
         </div>
-        <div class="info-box" onclick="changeStyle(this)">
-            <h2>Main Title 5</h2>
-            <h3>Subtitle 5</h3>
-            <p>This is a short paragraph describing the section.</p>
+        <div class="infinity-box" onclick="changeStyle(this)">
+            <h2>Infinity Pro</h2>
+            <h3>KES 200,000</h3>
+            <p>Trade and earn 13% after 2 days. Trade with a minimum of KES 150,000. Earning is unlimited and trading is done 24/7</p>
+            <button class="deposit-button">Deposit</button>
         </div>
     </section>
     
     <section class="contact-section">
         <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i> <!-- Phone Icon -->
+                <span>+123 456 7890</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i> <!-- Email Icon -->
+                <span>info@example.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i> <!-- Location Icon -->
+                <span>123 Main St, City, Country</span>
+            </div>
+        </div>
+        <p>Have questions about our trading platform? Whether you need assistance with your account, trading strategies, or platform features, our support team is here to help. </p>
+        
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="31e924f9-94e0-4167-9d7c-7783fa8791be">
+            
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            
             <button type="submit">Send Message</button>
         </form>
+        
     </section>
     
     <footer class="footer">
-        <p>&copy; 2024 All Rights Reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+        <p>&copy; 2025 All Rights Reserved | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
     </footer>
     
     <script>
@@ -300,7 +521,7 @@
         }
 
         document.addEventListener("scroll", function() {
-            var infoBoxes = document.querySelectorAll(".info-box");
+            var infoBoxes = document.querySelectorAll(".maverick-box, .fivefigure-box, .elite-box, .summit-box, .infinity-box");
             infoBoxes.forEach(function(infoBox) {
                 var position = infoBox.getBoundingClientRect().top;
                 var screenPosition = window.innerHeight / 1.2;
@@ -311,7 +532,7 @@
             });
         });
         
-        document.querySelectorAll(".info-box").forEach(function(box) {
+        document.querySelectorAll(".maverick-box, .fivefigure-box, .elite-box, .summit-box, .infinity-box").forEach(function(box) {
             box.addEventListener("mouseover", function() {
                 this.classList.add("shadow-bounce");
             });
@@ -326,5 +547,7 @@
             element.style.color = "#ff5733";
         }
     </script>
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div class="elfsight-app-bfb0e7c2-0ac0-457c-b90c-064d605aa169" data-elfsight-app-lazy> </div>
 </body>
 </html>
